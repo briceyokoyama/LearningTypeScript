@@ -48,8 +48,24 @@ saveInventoryItem({
     createDate: new Date(),
 });
 
-function clone(source) {
+function clone<T, U>(source: T, options: U): T {
     const serialized = JSON.stringify(source);
     return JSON.parse(serialized);
 }
 
+const cloned = clone(inventoryItem, { deep: true });
+const cloned2 = clone<InventoryItem, any>(inventoryItem, { deep: true });
+
+interface KeyValuePair<TKey, TValue> {
+  Key: TKey;
+  Value: TValue;
+}
+
+// This also works
+// class KeyValuePair<TKey, TValue> {
+//   Key: TKey;
+//   Value: TValue;
+// }
+
+var keyValue: KeyValuePair<string, number> = { Key: "something", Value: 1234 };
+var keyValue2: KeyValuePair<number, boolean> = { Key: 1234, Value: true };
