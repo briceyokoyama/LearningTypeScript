@@ -4,17 +4,20 @@ let trackingNumber: string = "FD123455";
 let createDate: Date = new Date();
 let originalCost = 425;
 
-function getInventoryItem(trackingNumber: string): {
-    displayName: string;
-    inventoryType: string;
-    trackingNumber: string;
-    createDate: Date;
-    originalCost: number;
-} {
+interface InventoryItem {
+  displayName: string;
+  inventoryType: string;
+  trackingNumber: string;
+  createDate: Date;
+  originalCost: number;
+}
+
+
+function getInventoryItem(trackingNumber: string): InventoryItem {
     return null;
 }
 
-function saveInventoryItem(item) {
+function saveInventoryItem(item: InventoryItem) {
 
 }
 
