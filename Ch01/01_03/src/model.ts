@@ -2,7 +2,8 @@ let displayName: string = "Jess's standing desk";
 let inventoryType: string = "furniture";
 let trackingNumber: string = "FD123455";
 let createDate: Date = new Date();
-let originalCost: number = 425;
+let originalCost: any = 425;
+originalCost = " A LOT OF MONEY!!";
 
 function getInventoryItem(trackingNumber: string): {
     displayName: string;
@@ -19,6 +20,9 @@ function saveInventoryItem(item) {
 }
 
 let inventoryItem = getInventoryItem(trackingNumber);
+inventoryItem.name = 'My name'
+
+let updatedInventoryItem = inventoryItem;
 
 inventoryItem.createDate = new Date();
 
